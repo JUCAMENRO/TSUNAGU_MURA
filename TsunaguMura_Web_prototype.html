@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tsunagu Mura - Conectando los pueblos de Japón</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f8f8f5;
+        }
+        
+        .japanese-font {
+            font-family: 'Noto Serif JP', serif;
+        }
+        
+        .hero-pattern {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyMzAsMjMwLDIyMCwwLjEpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+        }
+        
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(to bottom right, transparent 49.5%, #f8f8f5 50%), linear-gradient(to top right, transparent 49.5%, #f8f8f5 50%);
+            background-size: 50px 100px;
+        }
+        
+        .map-placeholder {
+            background: linear-gradient(135deg, #e2f3e8 25%, #f5f5e8 25%, #f5f5e8 50%, #e2f3e8 50%, #e2f3e8 75%, #f5f5e8 75%, #f5f5e8 100%);
+            background-size: 20px 20px;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .btn-cta {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-cta::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.2);
+            transform: rotate(30deg);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-cta:hover::after {
+            left: 100%;
+        }
+    </style>
+</head>
+<body class="text-gray-700">
+    <!-- Navigation -->
+    <nav class="bg-white bg-opacity-90 fixed w-full z-10 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-mountain text-2xl text-green-700 mr-2"></i>
+                <span class="text-xl font-semibold text-green-800 japanese-font">つなぐ村</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-green-700 hover:text-green-900 transition">Sobre el proyecto</a>
+                <a href="#features" class="text-green-700 hover:text-green-900 transition">Funcionalidades</a>
+                <a href="#map" class="text-green-700 hover:text-green-900 transition">Pueblos conectados</a>
+                <a href="#testimonials" class="text-green-700 hover:text-green-900 transition">Testimonios</a>
+                <a href="#contact" class="text-green-700 hover:text-green-900 transition">Contacto</a>
+            </div>
+            <button class="md:hidden text-green-700">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="container mx-auto px-4 flex flex-col items-center text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-green-800 mb-4 japanese-font">つなぐ村</h1>
+            <h2 class="text-2xl md:text-3xl font-medium text-gray-700 mb-6">Conectando los pueblos de Japón</h2>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mb-8">
+                Revitalizando comunidades rurales a través de la conexión humana, el turismo sostenible y el intercambio cultural.
+            </p>
+            <button class="btn-cta bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300 shadow-lg">
+                Únete a la red
+            </button>
+            <div class="mt-12 w-full max-w-4xl">
+                <img src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+                     alt="Pueblo rural japonés" 
+                     class="w-full h-64 md:h-96 object-cover rounded-xl shadow-md">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4">Sobre el Proyecto</h2>
+                <div class="w-20 h-1 bg-green-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Tsunagu Mura (つなぐ村, "Pueblo que conecta") es una iniciativa social que busca revitalizar las zonas rurales de Japón, 
+                        afectadas por la despoblación y el envejecimiento, mediante la creación de una red de comunicación y cooperación entre comunidades.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Nuestro objetivo es conectar pueblos, personas y recursos para fomentar el desarrollo sostenible, preservar el patrimonio cultural 
+                        y crear nuevas oportunidades económicas a través del turismo rural responsable.
+                    </p>
+                    <div class="flex items-center space-x-4 mt-8">
+                        <div class="flex-1 bg-green-50 p-4 rounded-lg">
+                            <i class="fas fa-hands-helping text-3xl text-green-700 mb-2"></i>
+                            <h3 class="font-semibold text-green-800">Comunidad</h3>
+                            <p class="text-sm text-gray-600">Fortaleciendo lazos entre residentes</p>
+                        </div>
+                        <div class="flex-1 bg-green-50 p-4 rounded-lg">
+                            <i class="fas fa-route text-3xl text-green-700 mb-2"></i>
+                            <h3 class="font-semibold text-green-800">Turismo Rural</h3>
+                            <p class="text-sm text-gray-600">Experiencias auténticas y sostenibles</p>
+                        </div>
+                        <div class="flex-1 bg-green-50 p-4 rounded-lg">
+                            <i class="fas fa-leaf text-3xl text-green-700 mb-2"></i>
+                            <h3 class="font-semibold text-green-800">Sostenibilidad</h3>
+                            <p class="text-sm text-gray-600">Desarrollo en armonía con la naturaleza</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
+                         alt="Arrozales japoneses" 
+                         class="w-full h-48 object-cover rounded-lg shadow">
+                    <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
+                         alt="Calle tradicional japonesa" 
+                         class="w-full h-48 object-cover rounded-lg shadow">
+                    <img src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
+                         alt="Pueblo rural" 
+                         class="w-full h-48 object-cover rounded-lg shadow">
+                    <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
+                         alt="Templo japonés" 
+                         class="w-full h-48 object-cover rounded-lg shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-green-50">
+        <div class="section-divider"></div>
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4">Funcionalidades de la Plataforma</h2>
+                <div class="w-20 h-1 bg-green-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+                    <div class="text-green-700 text-4xl mb-4">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">Red de Pueblos</h3>
+                    <p class="text-gray-600">
+                        Conectamos pueblos rurales en una red colaborativa donde comparten recursos, conocimientos y soluciones comunes.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+                    <div class="text-green-700 text-4xl mb-4">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">Eventos Culturales</h3>
+                    <p class="text-gray-600">
+                        Organización y promoción de festivales locales, talleres artesanales y experiencias culturales auténticas.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+                    <div class="text-green-700 text-4xl mb-4">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">Ayuda Mutua</h3>
+                    <p class="text-gray-600">
+                        Sistema de ayuda comunitaria donde los residentes pueden ofrecer y solicitar apoyo en diversas necesidades.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+                    <div class="text-green-700 text-4xl mb-4">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">Productos Locales</h3>
+                    <p class="text-gray-600">
+                        Plataforma de comercio justo para productos artesanales y agrícolas de las comunidades rurales.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-12 grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1519817650390-64a93db51149?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+                         alt="Personas usando la plataforma" 
+                         class="w-full rounded-xl shadow-lg">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-green-800 mb-4">Una plataforma diseñada para las necesidades rurales</h3>
+                    <p class="text-gray-600 mb-4">
+                        Tsunagu Mura no es solo una aplicación, es un puente entre el Japón urbano y rural, entre tradición y modernidad, 
+                        diseñado específicamente para abordar los desafíos únicos de las comunidades rurales.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Interfaz sencilla adaptada a usuarios mayores</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Funcionalidad offline para zonas con conectividad limitada</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Sistema de traducción para turistas internacionales</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Mapas detallados de rutas y senderos locales</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="py-16 bg-white">
+        <div class="section-divider" style="background: linear-gradient(to bottom right, transparent 49.5%, #ffffff 50%), linear-gradient(to top right, transparent 49.5%, #ffffff 50%);"></div>
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4">Pueblos Conectados</h2>
+                <div class="w-20 h-1 bg-green-600 mx-auto"></div>
+            </div>
+            
+            <div class="map-placeholder rounded-xl shadow-xl overflow-hidden h-96 relative">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center p-8 bg-white bg-opacity-90 rounded-lg shadow-md">
+                        <i class="fas fa-map-marked-alt text-4xl text-green-700 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-green-800 mb-2">Mapa Interactivo</h3>
+                        <p class="text-gray-600 mb-4">Próximamente: Explora los pueblos conectados a nuestra red</p>
+                        <button class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-full transition">
+                            Ver pueblos disponibles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 grid md:grid-cols-3 gap-6">
+                <div class="bg-green-50 p-6 rounded-lg flex items-start">
+                    <div class="text-green-700 text-2xl mr-4">
+                        <i class="fas fa-village"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-green-800 mb-1">+120 pueblos</h4>
+                        <p class="text-sm text-gray-600">Ya forman parte de nuestra red</p>
+                    </div>
+                </div>
+                <div class="bg-green-50 p-6 rounded-lg flex items-start">
+                    <div class="text-green-700 text-2xl mr-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-green-800 mb-1">+5,000 usuarios</h4>
+                        <p class="text-sm text-gray-600">Participando activamente</p>
+                    </div>
+                </div>
+                <div class="bg-green-50 p-6 rounded-lg flex items-start">
+                    <div class="text-green-700 text-2xl mr-4">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-green-800 mb-1">+800 intercambios</h4>
+                        <p class="text-sm text-gray-600">De ayuda mutua mensuales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-green-50">
+        <div class="section-divider"></div>
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4">Historias Reales</h2>
+                <div class="w-20 h-1 bg-green-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-md transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
+                             alt="Haruto" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-green-800">Haruto Tanaka</h4>
+                            <p class="text-sm text-gray-500">Agricultor, Prefectura de Nagano</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Gracias a Tsunagu Mura, hemos podido vender nuestros productos directamente a consumidores en la ciudad y recibir visitantes interesados en la agricultura tradicional. Ha cambiado nuestra economía familiar."
+                    </p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-md transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
+                             alt="Emiko" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-green-800">Emiko Sato</h4>
+                            <p class="text-sm text-gray-500">Artista textil, Prefectura de Kyoto</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "La plataforma me permitió encontrar aprendices para mi taller de tejido tradicional y conectar con otros artesanos. Ahora colaboramos en proyectos y compartimos técnicas casi perdidas."
+                    </p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-md transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
+                             alt="Lucas" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-green-800">Lucas Müller</h4>
+                            <p class="text-sm text-gray-500">Turista de Alemania</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Viajé a un pequeño pueblo en Gifu gracias a Tsunagu Mura. Fue la experiencia más auténtica de mi viaje a Japón, conviviendo con una familia local y aprendiendo sobre su vida cotidiana."
+                    </p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-green-800 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Empieza por descubrir un pueblo</h2>
+            <p class="text-xl text-green-100 max-w-2xl mx-auto mb-8">
+                Únete a nuestra red y forma parte del movimiento que está revitalizando el Japón rural.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="btn-cta bg-white hover:bg-gray-100 text-green-800 font-semibold py-3 px-8 rounded-full transition duration-300 shadow-lg">
+                    Descarga la app
+                </button>
+                <button class="btn-cta bg-transparent hover:bg-green-700 border-2 border-white text-white font-semibold py-3 px-8 rounded-full transition duration-300 shadow-lg">
+                    Explora en la web
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4">Contacto</h2>
+                <div class="w-20 h-1 bg-green-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold text-green-800 mb-4">Contáctanos</h3>
+                    <p class="text-gray-600 mb-6">
+                        ¿Tienes preguntas sobre el proyecto? ¿Eres un pueblo interesado en unirte? ¿Un turista buscando experiencias auténticas? Escríbenos.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-green-700 mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Correo electrónico</h4>
+                                <p class="text-gray-600">contacto@tsunagumura.jp</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt text-green-700 mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Teléfono</h4>
+                                <p class="text-gray-600">+81 3-1234-5678</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-green-700 mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Oficina central</h4>
+                                <p class="text-gray-600">1-2-3 Sakura, Chiyoda-ku, Tokyo, Japón</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold text-green-800 mt-8 mb-4">Síguenos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-green-100 hover:bg-green-200 text-green-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-green-100 hover:bg-green-200 text-green-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-green-100 hover:bg-green-200 text-green-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-green-100 hover:bg-green-200 text-green-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-1">Nombre</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-1">Correo electrónico</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-1">Asunto</label>
+                            <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                                <option value="">Selecciona un tema</option>
+                                <option value="join">Quiero unir mi pueblo a la red</option>
+                                <option value="visit">Quiero visitar un pueblo rural</option>
+                                <option value="collab">Propuesta de colaboración</option>
+                                <option value="other">Otro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-1">Mensaje</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-full transition">
+                            Enviar mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fas fa-mountain text-2xl text-green-300 mr-2"></i>
+                    <span class="text-xl font-semibold text-green-100 japanese-font">つなぐ村</span>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-green-200">© 2023 Tsunagu Mura. Todos los derechos reservados.</p>
+                    <p class="text-sm text-green-300 mt-1">Conectando el Japón rural, preservando su alma.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Mobile menu toggle (placeholder)
+        document.querySelector('.md\\:hidden').addEventListener('click', function() {
+            alert('Menú móvil se abriría aquí');
+        });
+        
+        // Animate elements when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, {threshold: 0.1});
+        
+        document.querySelectorAll('.testimonial-card, .hero-pattern, .map-placeholder').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
